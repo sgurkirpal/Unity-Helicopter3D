@@ -24,9 +24,9 @@ public class CoinSpawn : MonoBehaviour
         while (true)
         {
             float yComp = Random.Range(0f, 2f);
-            Instantiate(coin[0], new Vector3(21, yComp, -2), Quaternion.identity);
-            Instantiate(coin[0], new Vector3(21, yComp - 3f, -2), Quaternion.identity);
-            Instantiate(coin[0], new Vector3(21, yComp - 6f, -2), Quaternion.identity);
+            Instantiate(coin[0], new Vector3(30, yComp, -2), Quaternion.identity);
+            Instantiate(coin[0], new Vector3(30, yComp - 3f, -2), Quaternion.identity);
+            Instantiate(coin[0], new Vector3(30, yComp - 6f, -2), Quaternion.identity);
 
             yield return new WaitForSeconds(1.5f);
         }

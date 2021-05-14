@@ -14,7 +14,10 @@ public class playerMovement : MonoBehaviour
     public AudioSource coinPickUp;
     private UnityEngine.Vector2 initPosition;
     private float directionX, directionY,horF,verF;
-   // private float target=7f,sensitivity=3f; 
+
+    public Joystick joystick;
+    
+    // private float target=7f,sensitivity=3f; 
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -90,8 +94,12 @@ public class playerMovement : MonoBehaviour
             else
             {
                 vertical = 0;
-            }*/
-        }
+            }
+        }*/
+
+        horizontal = joystick.Horizontal * speed;
+        vertical = joystick.Vertical * speed;
+
         if (player.transform.position.y >= 2.5f)
         {
             player.transform.position = new Vector3(player.transform.position.x, 2.5f, player.position.z);
@@ -108,7 +116,7 @@ public class playerMovement : MonoBehaviour
         {
             player.transform.position = new Vector3(16f, player.transform.position.y, player.position.z);
         }
-        player.velocity = new Vector3(horizontal, vertical, 0);
+        player.velocity = new Vector3(vertical, 0, horizontal);
         //player.transform.position = new Vector3(-7 , -6, -2);
     }
 
@@ -118,13 +126,13 @@ public class playerMovement : MonoBehaviour
         {
             // trigger helicopter to explode when it collides with this
             explosion.Play();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             
         }
         if (other.tag == "Respawn")
         {
             explosion.Play();
-            Destroy(gameObject);
+            //Destroy(gameObject);
             
         }
 

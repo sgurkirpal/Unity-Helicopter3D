@@ -28,7 +28,7 @@ public class spawnBuilding : MonoBehaviour
         {
 
             // create a new skyscraper from prefab selection at right edge of screen
-            Instantiate(list[Random.Range(0, list.Length)], new Vector3(21, Random.Range(-12, -9), -1),
+            Instantiate(list[Random.Range(0, list.Length)], new Vector3(30, Random.Range(-12, -9), -1),
                 Quaternion.identity);
 
             // randomly increase the speed by 1
